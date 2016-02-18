@@ -61,14 +61,14 @@ typedef union YYSTYPE
 {
 
 /* Line 1676 of yacc.c  */
-#line 12 "compiler/grammer.y"
+#line 12 "compiler/grammar.y"
 
   char const *s;
 
 
 
 /* Line 1676 of yacc.c  */
-#line 72 "grammer.tab.h"
+#line 72 "grammar.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

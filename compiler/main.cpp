@@ -1,11 +1,7 @@
 #include <iostream>
 #include <stdio.h>
 
-extern "C" {
-  int yyparse();
-  void yyerror(const char *);
-  int yylex();
-}
+extern int yyparse();
 extern int yylineno;
 
 int main(){

@@ -68,7 +68,7 @@
 /* Copy the first part of user declarations.  */
 
 /* Line 189 of yacc.c  */
-#line 1 "compiler/grammer.y"
+#line 1 "compiler/grammar.y"
 
 #include <math.h>
 #include <stdio.h>
@@ -81,7 +81,7 @@ void speak(char const *);
 
 
 /* Line 189 of yacc.c  */
-#line 85 "grammer.tab.c"
+#line 85 "grammar.tab.c"
 
 /* Enabling traces.  */
 #ifndef YYDEBUG
@@ -130,14 +130,14 @@ typedef union YYSTYPE
 {
 
 /* Line 214 of yacc.c  */
-#line 12 "compiler/grammer.y"
+#line 12 "compiler/grammar.y"
 
   char const *s;
 
 
 
 /* Line 214 of yacc.c  */
-#line 141 "grammer.tab.c"
+#line 141 "grammar.tab.c"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
@@ -149,7 +149,7 @@ typedef union YYSTYPE
 
 
 /* Line 264 of yacc.c  */
-#line 153 "grammer.tab.c"
+#line 153 "grammar.tab.c"
 
 #ifdef short
 # undef short
@@ -1346,21 +1346,21 @@ yyreduce:
         case 5:
 
 /* Line 1455 of yacc.c  */
-#line 30 "compiler/grammer.y"
+#line 30 "compiler/grammar.y"
     {speak((yyvsp[(1) - (7)].s));;}
     break;
 
   case 6:
 
 /* Line 1455 of yacc.c  */
-#line 31 "compiler/grammer.y"
+#line 31 "compiler/grammar.y"
     {speak((yyvsp[(1) - (8)].s));;}
     break;
 
 
 
 /* Line 1455 of yacc.c  */
-#line 1364 "grammer.tab.c"
+#line 1364 "grammar.tab.c"
       default: break;
     }
   YY_SYMBOL_PRINT ("-> $$ =", yyr1[yyn], &yyval, &yyloc);
@@ -1572,7 +1572,7 @@ yyreturn:
 
 
 /* Line 1675 of yacc.c  */
-#line 43 "compiler/grammer.y"
+#line 43 "compiler/grammar.y"
 
 
 #include "lex.yy.c"

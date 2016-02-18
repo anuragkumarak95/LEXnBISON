@@ -1,14 +1,3 @@
 hello: -> (){
-  // showing working single line comment
 
-
-  hel : int = 4
-  hello : str = "hi"
-
-  name2name : str
-
-  /*
-  showing working multiline comment,
-  both working properly.
-  */
 }

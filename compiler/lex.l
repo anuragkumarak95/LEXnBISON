@@ -1,6 +1,6 @@
 %option noyywrap
 %{
-#include "grammer.tab.h"
+#include "grammar.tab.h"
 int yylineno = 1;
 %}
 
@@ -12,7 +12,7 @@ digit             [0-9]
 number            (-)?{digit}+
 
 anything          .*
-comment           ([\/\/]{anything})|(\/(\\*)({anything}(\n)*)*(\\*)\/)
+comment           ([\/\/]{anything}\n)
 
 %%
 
