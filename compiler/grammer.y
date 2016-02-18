@@ -13,19 +13,33 @@ void speak(char const *);
   char const *s;
 }
 
-%token BRA KET ARROW COLON BO DY
+%token BRA KET ARROW COLON BO DY ASSIGN
+%token INTEGER STRING
+%token NUMBER_LITERAL STRING_LITERAL
 %token<s> NAME
 
 %start input
 
 %%
 
-input      :  line;
+input       :  funcs;
 
-line        : line line;
-            | NAME COLON ARROW BRA KET BO DY{speak($1);};
-            | NAME COLON ARROW BRA KET BO line DY{speak($1);};
+funcs       : func funcs
+            | func;
 
+func        : NAME COLON ARROW BRA KET BO DY{speak($1);}
+            | NAME COLON ARROW BRA KET BO exprs DY{speak($1);};
+
+exprs       : expr exprs
+            | expr ;
+
+expr        : NAME COLON type ASSIGN value
+            | NAME COLON type
+            ;
+
+type        : INTEGER | STRING ;
+
+value       : STRING_LITERAL | NUMBER_LITERAL ;
 %%
 
 #include "lex.yy.c"
