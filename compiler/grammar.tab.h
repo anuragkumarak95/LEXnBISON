@@ -39,37 +39,25 @@
    /* Put the tokens into the symbol table, so that GDB and other debuggers
       know about them.  */
    enum yytokentype {
-     BRA = 258,
-     KET = 259,
-     ARROW = 260,
-     COLON = 261,
-     BO = 262,
-     DY = 263,
-     ASSIGN = 264,
-     INTEGER = 265,
-     STRING = 266,
-     NUMBER_LITERAL = 267,
-     STRING_LITERAL = 268,
-     NAME = 269
+     NAME = 258,
+     BRA = 259,
+     KET = 260,
+     ARROW = 261,
+     COLON = 262,
+     BO = 263,
+     DY = 264,
+     ASSIGN = 265,
+     INTEGER = 266,
+     STRING = 267,
+     NUMBER_LITERAL = 268,
+     STRING_LITERAL = 269
    };
 #endif
 
 
 
 #if ! defined YYSTYPE && ! defined YYSTYPE_IS_DECLARED
-typedef union YYSTYPE
-{
-
-/* Line 1676 of yacc.c  */
-#line 12 "compiler/grammar.y"
-
-  char const *s;
-
-
-
-/* Line 1676 of yacc.c  */
-#line 72 "grammar.tab.h"
-} YYSTYPE;
+typedef int YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */
 # define YYSTYPE_IS_DECLARED 1

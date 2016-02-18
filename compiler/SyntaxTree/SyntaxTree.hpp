@@ -4,13 +4,14 @@
 #include <memory>
 
 namespace compiler{
-  class SystemTree{
+  class SyntaxTree{
   public:
-    SystemTree() - default;
-    virtual ~SystemTree() - default;
+    SyntaxTree() = default;
+    virtual ~SyntaxTree() = default;
     virtual std::string toCode() const = 0;
   protected:
-    std::vector<std::unique_ptr<SystemTree>>
+    std::vector<std::unique_ptr<SyntaxTree>>
       children;
-  }
+  };
+  
 }

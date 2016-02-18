@@ -385,8 +385,9 @@ char *yytext;
 #define INITIAL 0
 #line 3 "compiler/lex.l"
 #include "grammar.tab.h"
+#include "SyntaxTree/Name.hpp"
 int yylineno = 1;
-#line 390 "lex.yy.c"
+#line 391 "lex.yy.c"
 
 /* Macros after this point can all be overridden by user definitions in
  * section 1.
@@ -537,10 +538,10 @@ YY_DECL
 	register char *yy_cp, *yy_bp;
 	register int yy_act;
 
-#line 17 "compiler/lex.l"
+#line 18 "compiler/lex.l"
 
 
-#line 544 "lex.yy.c"
+#line 545 "lex.yy.c"
 
 	if ( yy_init )
 		{
@@ -625,85 +626,85 @@ do_action:	/* This label is used only to access EOF actions. */
 
 case 1:
 YY_RULE_SETUP
-#line 19 "compiler/lex.l"
-{ return NAME;    }
+#line 20 "compiler/lex.l"
+{ yylval = reinterpret_cast<void *>(); return NAME;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
-#line 21 "compiler/lex.l"
+#line 22 "compiler/lex.l"
 //No response to any commented section.
 	YY_BREAK
 case 3:
 YY_RULE_SETUP
-#line 22 "compiler/lex.l"
+#line 23 "compiler/lex.l"
 //No response to any whitespace category token.
 	YY_BREAK
 case 4:
 YY_RULE_SETUP
-#line 24 "compiler/lex.l"
+#line 25 "compiler/lex.l"
 { return BRA ;    }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
-#line 25 "compiler/lex.l"
+#line 26 "compiler/lex.l"
 { return KET ;    }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
-#line 26 "compiler/lex.l"
+#line 27 "compiler/lex.l"
 { return ASSIGN;  }
 	YY_BREAK
 case 7:
 YY_RULE_SETUP
-#line 27 "compiler/lex.l"
+#line 28 "compiler/lex.l"
 { return ARROW;   }
 	YY_BREAK
 case 8:
 YY_RULE_SETUP
-#line 28 "compiler/lex.l"
+#line 29 "compiler/lex.l"
 { return COLON;   }
 	YY_BREAK
 case 9:
 YY_RULE_SETUP
-#line 29 "compiler/lex.l"
+#line 30 "compiler/lex.l"
 { return BO;      }
 	YY_BREAK
 case 10:
 YY_RULE_SETUP
-#line 30 "compiler/lex.l"
+#line 31 "compiler/lex.l"
 { return DY;      }
 	YY_BREAK
 case 11:
 YY_RULE_SETUP
-#line 32 "compiler/lex.l"
+#line 33 "compiler/lex.l"
 { return INTEGER; }
 	YY_BREAK
 case 12:
 YY_RULE_SETUP
-#line 33 "compiler/lex.l"
+#line 34 "compiler/lex.l"
 { return STRING;  }
 	YY_BREAK
 case 13:
 YY_RULE_SETUP
-#line 36 "compiler/lex.l"
+#line 37 "compiler/lex.l"
 { return NUMBER_LITERAL;}
 	YY_BREAK
 case 14:
 YY_RULE_SETUP
-#line 37 "compiler/lex.l"
+#line 38 "compiler/lex.l"
 { return STRING_LITERAL;}
 	YY_BREAK
 case 15:
 YY_RULE_SETUP
-#line 40 "compiler/lex.l"
+#line 41 "compiler/lex.l"
 ++yylineno;
 	YY_BREAK
 case 16:
 YY_RULE_SETUP
-#line 41 "compiler/lex.l"
+#line 42 "compiler/lex.l"
 ECHO;
 	YY_BREAK
-#line 707 "lex.yy.c"
+#line 708 "lex.yy.c"
 case YY_STATE_EOF(INITIAL):
 	yyterminate();
 
@@ -1589,4 +1590,4 @@ int main()
 	return 0;
 	}
 #endif
-#line 41 "compiler/lex.l"
+#line 42 "compiler/lex.l"

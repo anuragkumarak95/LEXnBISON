@@ -1,6 +1,7 @@
 %option noyywrap
 %{
 #include "grammar.tab.h"
+#include "SyntaxTree/Name.hpp"
 int yylineno = 1;
 %}
 
@@ -16,7 +17,7 @@ comment           ([\/\/]{anything}\n)
 
 %%
 
-{name}         { return NAME;    }
+{name}         { return NAME;}
 
 {comment}      //No response to any commented section.
 {ws}           //No response to any whitespace category token.
@@ -26,6 +27,7 @@ comment           ([\/\/]{anything}\n)
 "="            { return ASSIGN;  }
 "->"           { return ARROW;   }
 ":"            { return COLON;   }
+";"            { return SEMI;   }
 "{"            { return BO;      }
 "}"            { return DY;      }
 
