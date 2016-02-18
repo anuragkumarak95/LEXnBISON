@@ -5,14 +5,17 @@
 
 
 
-%start line
+%start lines
 
 %token BRA KET NL
 %%
 
+lines     : line lines
+          | line
+          ;
 line      : BRA KET NL
             {printf("hello by ");}
-            ;
+          ;
 
 
 %%
