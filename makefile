@@ -2,10 +2,11 @@ all:
 	${MAKE} grammar
 	${MAKE} lex
 	gcc -c compiler/grammer.tab.c compiler/lex.yy.c
-	mv grammer.tab.o compiler
-	mv lex.yy.o compiler
-	ar rvs compiler/lexgram.a compiler/grammer.tab.o compiler/lex.yy.o
-	g++ -std=c++11 -Wall -Wextra compiler/main.cpp compiler/lexgram.a
+	mv grammer.tab.o bin
+	mv lex.yy.o bin
+	ar rvs bin/lexgram.a bin/grammer.tab.o bin/lex.yy.o
+	g++ -std=c++11 -Wall -Wextra compiler/main.cpp bin/lexgram.a
+
 	${MAKE} run
 
 grammar:

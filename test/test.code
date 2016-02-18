@@ -1,3 +1,10 @@
-enter{
-hello{hey{}}
+name: -> ( ){
+  hello: -> (){
+// showing working single line comment
+/*
+showing working multiline comment,
+both working properly.
+*/
+}
+
 }

@@ -41,7 +41,11 @@
    enum yytokentype {
      BRA = 258,
      KET = 259,
-     NAME = 260
+     ARROW = 260,
+     COLON = 261,
+     BO = 262,
+     DY = 263,
+     NAME = 264
    };
 #endif
 
@@ -59,7 +63,7 @@ typedef union YYSTYPE
 
 
 /* Line 1676 of yacc.c  */
-#line 63 "grammer.tab.h"
+#line 67 "grammer.tab.h"
 } YYSTYPE;
 # define YYSTYPE_IS_TRIVIAL 1
 # define yystype YYSTYPE /* obsolescent; will be withdrawn */

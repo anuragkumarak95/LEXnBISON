@@ -13,7 +13,7 @@ void speak(char const *);
   char const *s;
 }
 
-%token BRA KET
+%token BRA KET ARROW COLON BO DY
 %token<s> NAME
 
 %start input
@@ -22,8 +22,9 @@ void speak(char const *);
 
 input      :  line;
 
-line        :  NAME BRA KET{speak($1);};
-            | NAME BRA line KET{speak($1);};
+line        : line line;
+            | NAME COLON ARROW BRA KET BO DY{speak($1);};
+            | NAME COLON ARROW BRA KET BO line DY{speak($1);};
 
 %%
 
