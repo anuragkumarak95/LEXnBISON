@@ -17,7 +17,7 @@ comment           ([\/\/]{anything}\n)
 
 %%
 
-{name}         { return NAME;}
+{name}         { yylval = reinterpret_cast<void *>(new compiler::Name(yytext)); return NAME;}
 
 {comment}      //No response to any commented section.
 {ws}           //No response to any whitespace category token.
@@ -27,7 +27,7 @@ comment           ([\/\/]{anything}\n)
 "="            { return ASSIGN;  }
 "->"           { return ARROW;   }
 ":"            { return COLON;   }
-";"            { return SEMI;   }
+";"            { return SEMI;    }
 "{"            { return BO;      }
 "}"            { return DY;      }
 

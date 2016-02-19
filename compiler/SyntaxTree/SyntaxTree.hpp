@@ -13,5 +13,5 @@ namespace compiler{
     std::vector<std::unique_ptr<SyntaxTree>>
       children;
   };
-  
+
 }

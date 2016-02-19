@@ -8,7 +8,8 @@ int yylex (void);
 void yyerror (char const *);
 void speak(char const *);
 %}
-%define api.value.type {double}
+
+%define api.value.type {void *}
 
 %token NAME BRA KET ARROW COLON BO DY ASSIGN SEMI
 
@@ -20,18 +21,18 @@ void speak(char const *);
 
 %%
 
-input       :  funcs;
+input       :  func;
 
 funcs       : func funcs
             | func;
 
-func        : NAME COLON ARROW BRA KET BO DY{speak("hi");}
-            | NAME COLON ARROW BRA KET BO statements DY{speak("hi");};
+func        : NAME COLON ARROW BRA KET BO DY                                    {};
+            | NAME COLON ARROW BRA KET BO statements DY                         {};
 
 statements  : statements statement
             | statement;
 
-statement   : NAME SEMI {};
+statement   : NAME SEMI                                                         {};
 
 exprs       : expr exprs
             | expr ;
