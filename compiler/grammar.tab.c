@@ -1225,12 +1225,13 @@ yyreduce:
 
   case 7:
 #line 35 "compiler/grammar.y" /* yacc.c:1646  */
-    {}
-#line 1230 "grammar.tab.c" /* yacc.c:1646  */
+    { compiler::SyntaxTree r =reinterpret_cast<compiler::SyntaxTree *>((yyvsp[-1]));
+                                                                                  printf("hello by : %t\n",r->toCode());}
+#line 1231 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1234 "grammar.tab.c" /* yacc.c:1646  */
+#line 1235 "grammar.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1458,10 +1459,10 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 47 "compiler/grammar.y" /* yacc.c:1906  */
+#line 49 "compiler/grammar.y" /* yacc.c:1906  */
 
 
-std::unique_ptr<compiler::SyntaxTree> root;
+std::unique_ptr<compiler::SyntaxTree> root const;
 
 #include "lex.yy.c"
 

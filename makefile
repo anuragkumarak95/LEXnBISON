@@ -2,17 +2,14 @@ all:
 	${MAKE} grammar
 	${MAKE} lex
 	g++ -std=gnu++11 -Wall -Wextra compiler/main.cpp compiler/grammar.tab.c
-
-	${MAKE} run
-
+	${MAKE} runTest
 grammar:
 	bison -d compiler/grammar.y
-	mv grammar.tab.h compiler
-	mv grammar.tab.c compiler
+	mv grammar.tab.* compiler
 
 lex:
 	flex compiler/lex.l
-	mv lex.yy.c compiler
+	mv lex.yy.* compiler
 
-run:
+runTest:
 	a < test/test.code

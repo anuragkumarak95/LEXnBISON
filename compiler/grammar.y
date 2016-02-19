@@ -32,7 +32,9 @@ func        : NAME COLON ARROW BRA KET BO DY                                    
 statements  : statements statement
             | statement;
 
-statement   : NAME SEMI                                                         {};
+statement   : NAME SEMI                                                         { compiler::SyntaxTree r =reinterpret_cast<compiler::SyntaxTree *>($1);
+                                                                                  printf("hello by : %t\n",r->toCode());}
+            ;
 
 exprs       : expr exprs
             | expr ;
@@ -46,7 +48,7 @@ type        : INTEGER | STRING ;
 value       : STRING_LITERAL | NUMBER_LITERAL ;
 %%
 
-std::unique_ptr<compiler::SyntaxTree> root;
+std::unique_ptr<compiler::SyntaxTree> root const;
 
 #include "lex.yy.c"
 
