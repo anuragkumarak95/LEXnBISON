@@ -8,7 +8,7 @@ int yylineno = 1;
 alpha             [a-zA-Z]
 ws                [ \r\t\v\f]
 name              {alpha}([0-9]*{alpha}*)+
-string            [(\\").*(\\")]
+string            (\"){anything}(\")
 digit             [0-9]
 number            (-)?{digit}+
 
@@ -16,6 +16,10 @@ anything          .*
 comment           ([\/\/]{anything}\n)
 
 %%
+
+"print"        { return PRINT;   }
+"int"          { return INTEGER; }
+"str"          { return STRING;  }
 
 {name}         { return NAME;}
 
@@ -31,8 +35,7 @@ comment           ([\/\/]{anything}\n)
 "{"            { return BO;      }
 "}"            { return DY;      }
 
-"int"          { return INTEGER; }
-"str"          { return STRING;  }
+
 
 
 {number}       { return NUMBER_LITERAL;}

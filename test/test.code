@@ -1,5 +1,8 @@
-hello:  -> (){
-one;
-two;
-three;
+hello : int  -> (){
+name: int
+name2 : str = "hi"
+hel:int="hiinonoibonoinoi"
+
+
+print shayariiiiii;
 }

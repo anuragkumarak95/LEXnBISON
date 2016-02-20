@@ -16,10 +16,10 @@ std::unique_ptr<compiler::SyntaxTree> root;
 
 %define api.value.type {compiler::SyntaxTree *}
 
-%token NAME BRA KET ARROW COLON BO DY ASSIGN SEMI
+%token NAME BRA KET ARROW COLON BO DY ASSIGN SEMI NAME PRINT
 
 %token INTEGER STRING
-%token NUMBER_LITERAL STRING_LITERAL NAME
+%token NUMBER_LITERAL STRING_LITERAL
 
 
 %start input
@@ -33,26 +33,25 @@ funcs       : func funcs                                                        
             | %empty                                                            {$$ = nullptr;}
             ;
 
-func        : NAME COLON ARROW BRA KET BO statements DY                         {$$ = new compiler::Function($1,$7);}
+func        : NAME COLON type ARROW BRA KET BO statements DY                    {$$ = new compiler::Function($1,$8);}
             ;
 
 statements  : statements statement                                              {$$ = new compiler::Statements($1,$2);}
             | %empty                                                            {$$ = nullptr;}
             ;
 
-statement   : name SEMI                                                         {$$ = new compiler::Statement($1);}
+statement   : expr                                                              {$$ = new compiler::Statement($1);}
+            | print                                                             {$$ = new compiler::Statement($1);}
             ;
 
+print       : PRINT name SEMI                                                   {$$ = $2;}
+            ;
 
 name        :NAME                                                               {$$ =new compiler::Name(yytext);}
             ;
 
-exprs       : expr exprs
-            | expr
-            ;
-
-expr        : NAME COLON type ASSIGN value
-            | NAME COLON type
+expr        : name COLON type ASSIGN value                                      {$$ = $1;}
+            | name COLON type                                                   {$$ = $1;}
             ;
 
 type        : INTEGER | STRING ;

@@ -1,4 +1,5 @@
 all:
+	-rm -f compiled/*.*
 	${MAKE} grammar
 	${MAKE} lex
 	g++ -std=gnu++11 -Wall -Wextra compiler/main.cpp compiler/grammar.tab.c
@@ -15,6 +16,5 @@ lex:
 
 run:
 	./bin/a.exe < test/test.code > compiled/result.cpp
-	g++ compiled/result.cpp -o compiled/result.exe
-
-	./compiled/result.exe
+	-g++ compiled/result.cpp -o compiled/result.exe
+	-./compiled/result.exe
