@@ -5,5 +5,6 @@
 #include "Statements.hpp"
 #include "Input.hpp"
 #include "Function.hpp"
+#include "Functions.hpp"
 #include "Variable.hpp"
 #include "Value.hpp"

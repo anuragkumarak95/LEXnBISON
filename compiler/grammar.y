@@ -29,7 +29,7 @@ std::unique_ptr<compiler::SyntaxTree> root;
 input       :  func funcs                                                       {root.reset(new compiler::Input($1,$2));}
             ;
 
-funcs       : func funcs                                                        {$$ = $1;}
+funcs       : func funcs                                                        {$$ = new compiler::Functions($1,$2);}
             | %empty                                                            {$$ = nullptr;}
             ;
 
@@ -47,11 +47,11 @@ statement   : variable                                                          
 print       : PRINT name SEMI                                                   {$$ = $2;}
             ;
 
-params      : params param
-            | %empty
+params      : params param                                                      {}
+            | %empty                                                            { $$ = nullptr;}
             ;
 
-param       : type name
+param       : name COLON type                                                   { $$ = $1;}
             ;
 
 variable    : name COLON type ASSIGN value                                      {$$ = new compiler::Variable($1,$5);}

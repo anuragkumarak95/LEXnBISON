@@ -15,8 +15,7 @@ namespace compiler{
       std::string code;
 
       for(SyntaxTree *chk : children) { if(chk != nullptr){if(dynamic_cast<const compiler::Name*>(chk)){if(chk->toCode().compare("enter") != 0) return "";}}}
-
-      code += "#include <stdio.h>\n";
+      
       code += "int main() {";
         for(SyntaxTree *node : children){
           if(node != nullptr){if(!dynamic_cast<Name *>(node)) code += node->toCode();}

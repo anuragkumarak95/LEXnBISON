@@ -2,13 +2,13 @@
 #include "SyntaxTree.hpp"
 
 namespace compiler{
-  class Input : public SyntaxTree{
+  class Functions : public SyntaxTree{
   public:
-    Input(SyntaxTree *tree,SyntaxTree *otherTree){
+    Functions(SyntaxTree *tree,SyntaxTree *otherTree){
       children.push_back(tree);
       children.push_back(otherTree);
     }
-    virtual ~Input(){
+    virtual ~Functions(){
 
     }
     virtual std::string toCode() const{
@@ -16,7 +16,7 @@ namespace compiler{
       for(SyntaxTree *node : children){
         if(node != nullptr){code += node->toCode();}
       }
-      return "#include <stdio.h>\n"+code;
+      return code;
     }
   };
 
