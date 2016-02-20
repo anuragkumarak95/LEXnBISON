@@ -9,15 +9,3 @@ hel:int=5
 
 print shayariiiiii;
 }
-
-enter : void  -> (n1:int n2:str){
-
-//comment implementation here.
-
-name: int
-name2 : str = "hi"
-hel:int=5
-
-
-print shayariiiiii;
-}

@@ -1290,38 +1290,56 @@ yyreduce:
 #line 1291 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
+  case 11:
+#line 50 "compiler/grammar.y" /* yacc.c:1646  */
+    {}
+#line 1297 "grammar.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 12:
+#line 51 "compiler/grammar.y" /* yacc.c:1646  */
+    { (yyval) = nullptr;}
+#line 1303 "grammar.tab.c" /* yacc.c:1646  */
+    break;
+
+  case 13:
+#line 54 "compiler/grammar.y" /* yacc.c:1646  */
+    { (yyval) = (yyvsp[-2]);}
+#line 1309 "grammar.tab.c" /* yacc.c:1646  */
+    break;
+
   case 14:
 #line 57 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Variable((yyvsp[-4]),(yyvsp[0]));}
-#line 1297 "grammar.tab.c" /* yacc.c:1646  */
+#line 1315 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
 #line 58 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Variable((yyvsp[-2]));}
-#line 1303 "grammar.tab.c" /* yacc.c:1646  */
+#line 1321 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
 #line 61 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) =new compiler::Name(yytext);}
-#line 1309 "grammar.tab.c" /* yacc.c:1646  */
+#line 1327 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
 #line 66 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Value("str",yytext);}
-#line 1315 "grammar.tab.c" /* yacc.c:1646  */
+#line 1333 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
 #line 67 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Value("int",yytext);}
-#line 1321 "grammar.tab.c" /* yacc.c:1646  */
+#line 1339 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1325 "grammar.tab.c" /* yacc.c:1646  */
+#line 1343 "grammar.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1560,6 +1578,11 @@ void speak(char const *s){
 }
 
 void yyerror (char const *x){
- printf("Error --  %s\n",x);
- exit(1);
+ printf("#include <stdio.h>\n");
+ printf("int main(){");
+  printf("printf(\"");
+ printf("Error --  %s",x);
+  printf("\\n\");");
+ printf("}");
+ exit(0);
 }

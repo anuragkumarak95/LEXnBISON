@@ -8,10 +8,11 @@
 #include "SyntaxTree/Includes.hpp"
 extern char *yytext;
 int yylex (void);
+
 void yyerror (char const *);
-void speak(char const *);
 
 std::unique_ptr<compiler::SyntaxTree> root;
+
 %}
 
 %define api.value.type {compiler::SyntaxTree *}
@@ -47,7 +48,7 @@ statement   : variable                                                          
 print       : PRINT name SEMI                                                   {$$ = $2;}
             ;
 
-params      : params param                                                      {}
+params      : params param                                                      {} // similar to a variable declaration but only for using as a function param.
             | %empty                                                            { $$ = nullptr;}
             ;
 
@@ -71,11 +72,13 @@ value       : STRING_LITERAL                                                    
 
 #include "lex.yy.c"
 
-void speak(char const *s){
-  printf("hello %s\n",s);
-}
-
+//print the error also in the final target program source code.
 void yyerror (char const *x){
- printf("Error --  %s\n",x);
- exit(1);
+ printf("#include <stdio.h>\n");
+ printf("int main(){");
+  printf("printf(\"");
+ printf("Error --  %s",x);
+  printf("\\n\");");
+ printf("}");
+ exit(0);
 }
