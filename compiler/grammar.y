@@ -16,7 +16,7 @@ std::unique_ptr<compiler::SyntaxTree> root;
 
 %define api.value.type {compiler::SyntaxTree *}
 
-%token NAME BRA KET ARROW COLON BO DY ASSIGN SEMI NAME PRINT
+%token NAME BRA KET ARROW COLON BO DY ASSIGN SEMI PRINT
 
 %token INTEGER STRING VOID
 %token NUMBER_LITERAL STRING_LITERAL
@@ -33,30 +33,39 @@ funcs       : func funcs                                                        
             | %empty                                                            {$$ = nullptr;}
             ;
 
-func        : NAME COLON type ARROW BRA KET BO statements DY                    {$$ = new compiler::Function($1,$8);}
+func        : name COLON type ARROW BRA params KET BO statements DY             {$$ = new compiler::Function($1,$9);}
             ;
 
 statements  : statements statement                                              {$$ = new compiler::Statements($1,$2);}
             | %empty                                                            {$$ = nullptr;}
             ;
 
-statement   : expr                                                              {$$ = new compiler::Statement($1);}
+statement   : variable                                                          {$$ = new compiler::Statement($1);}
             | print                                                             {$$ = new compiler::Statement($1);}
             ;
 
 print       : PRINT name SEMI                                                   {$$ = $2;}
             ;
 
-name        :NAME                                                               {$$ =new compiler::Name(yytext);}
+params      : params param
+            | %empty
             ;
 
-expr        : name COLON type ASSIGN value                                      {$$ = $1;}
-            | name COLON type                                                   {$$ = $1;}
+param       : type name
+            ;
+
+variable    : name COLON type ASSIGN value                                      {$$ = new compiler::Variable($1,$5);}
+            | name COLON type                                                   {$$ = new compiler::Variable($1);}
+            ;
+
+name        :NAME                                                               {$$ =new compiler::Name(yytext);}
             ;
 
 type        : INTEGER | STRING | VOID ;
 
-value       : STRING_LITERAL | NUMBER_LITERAL ;
+value       : STRING_LITERAL                                                    {$$ = new compiler::Value("str",yytext);}
+            | NUMBER_LITERAL                                                    {$$ = new compiler::Value("int",yytext);}
+            ;
 %%
 
 

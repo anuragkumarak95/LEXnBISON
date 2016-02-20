@@ -20,9 +20,9 @@ comment           ([\/\/]{anything}\n)
 "print"        { return PRINT;   }
 "int"          { return INTEGER; }
 "str"          { return STRING;  }
-"void"         { return VOID;}
+"void"         { return VOID;    }
 
-{name}         { return NAME;}
+{name}         { return NAME;    }
 
 {comment}      //No response to any commented section.
 {ws}           //No response to any whitespace category token.

@@ -1,10 +1,10 @@
-enter : void  -> (){
+enter : void  -> (int n1 int n2){
 
 //comment implementation here.
 
 name: int
 name2 : str = "hi"
-hel:int="hiinonoibonoinoi"
+hel:int=5
 
 
 print shayariiiiii;

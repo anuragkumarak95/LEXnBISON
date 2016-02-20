@@ -655,12 +655,12 @@ YY_RULE_SETUP
 case 4:
 YY_RULE_SETUP
 #line 23 "compiler/lex.l"
-{ return VOID;}
+{ return VOID;    }
 	YY_BREAK
 case 5:
 YY_RULE_SETUP
 #line 25 "compiler/lex.l"
-{ return NAME;}
+{ return NAME;    }
 	YY_BREAK
 case 6:
 YY_RULE_SETUP
