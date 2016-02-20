@@ -1,7 +1,7 @@
 %option noyywrap
 %{
 #include "grammar.tab.h"
-#include "SyntaxTree/Name.hpp"
+#include "SyntaxTree/Includes.hpp"
 int yylineno = 1;
 %}
 
@@ -17,7 +17,7 @@ comment           ([\/\/]{anything}\n)
 
 %%
 
-{name}         { yylval = reinterpret_cast<void *>(new compiler::Name(yytext)); return NAME;}
+{name}         { return NAME;}
 
 {comment}      //No response to any commented section.
 {ws}           //No response to any whitespace category token.

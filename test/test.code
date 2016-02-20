@@ -1,3 +1,5 @@
-hello: -> (){
-henk;
+hello:  -> (){
+one;
+two;
+three;
 }

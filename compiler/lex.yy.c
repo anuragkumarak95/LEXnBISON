@@ -387,7 +387,7 @@ char *yytext;
 #define INITIAL 0
 #line 3 "compiler/lex.l"
 #include "grammar.tab.h"
-#include "SyntaxTree/Name.hpp"
+#include "SyntaxTree/Includes.hpp"
 int yylineno = 1;
 #line 393 "lex.yy.c"
 
@@ -629,7 +629,7 @@ do_action:	/* This label is used only to access EOF actions. */
 case 1:
 YY_RULE_SETUP
 #line 20 "compiler/lex.l"
-{ yylval = reinterpret_cast<void *>(new compiler::Name(yytext)); return NAME;}
+{ return NAME;}
 	YY_BREAK
 case 2:
 YY_RULE_SETUP
