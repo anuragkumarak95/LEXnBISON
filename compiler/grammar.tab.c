@@ -73,12 +73,13 @@
 #include "SyntaxTree/Includes.hpp"
 extern char *yytext;
 int yylex (void);
+
 void yyerror (char const *);
-void speak(char const *);
 
 std::unique_ptr<compiler::SyntaxTree> root;
 
-#line 82 "grammar.tab.c" /* yacc.c:339  */
+
+#line 83 "grammar.tab.c" /* yacc.c:339  */
 
 # ifndef YY_NULLPTR
 #  if defined __cplusplus && 201103L <= __cplusplus
@@ -147,7 +148,7 @@ int yyparse (void);
 
 /* Copy the second part of user declarations.  */
 
-#line 151 "grammar.tab.c" /* yacc.c:358  */
+#line 152 "grammar.tab.c" /* yacc.c:358  */
 
 #ifdef short
 # undef short
@@ -446,9 +447,9 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    29,    29,    32,    33,    36,    39,    40,    43,    44,
-      47,    50,    51,    54,    57,    58,    61,    64,    64,    64,
-      66,    67
+       0,    30,    30,    33,    34,    37,    40,    41,    44,    45,
+      48,    51,    52,    55,    58,    59,    62,    65,    65,    65,
+      67,    68
 };
 #endif
 
@@ -1237,109 +1238,109 @@ yyreduce:
   switch (yyn)
     {
         case 2:
-#line 29 "compiler/grammar.y" /* yacc.c:1646  */
+#line 30 "compiler/grammar.y" /* yacc.c:1646  */
     {root.reset(new compiler::Input((yyvsp[-1]),(yyvsp[0])));}
-#line 1243 "grammar.tab.c" /* yacc.c:1646  */
+#line 1244 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 3:
-#line 32 "compiler/grammar.y" /* yacc.c:1646  */
+#line 33 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Functions((yyvsp[-1]),(yyvsp[0]));}
-#line 1249 "grammar.tab.c" /* yacc.c:1646  */
+#line 1250 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 4:
-#line 33 "compiler/grammar.y" /* yacc.c:1646  */
+#line 34 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = nullptr;}
-#line 1255 "grammar.tab.c" /* yacc.c:1646  */
+#line 1256 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 5:
-#line 36 "compiler/grammar.y" /* yacc.c:1646  */
+#line 37 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Function((yyvsp[-9]),(yyvsp[-1]));}
-#line 1261 "grammar.tab.c" /* yacc.c:1646  */
+#line 1262 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 39 "compiler/grammar.y" /* yacc.c:1646  */
+#line 40 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Statements((yyvsp[-1]),(yyvsp[0]));}
-#line 1267 "grammar.tab.c" /* yacc.c:1646  */
+#line 1268 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 40 "compiler/grammar.y" /* yacc.c:1646  */
+#line 41 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = nullptr;}
-#line 1273 "grammar.tab.c" /* yacc.c:1646  */
+#line 1274 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 43 "compiler/grammar.y" /* yacc.c:1646  */
+#line 44 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Statement((yyvsp[0]));}
-#line 1279 "grammar.tab.c" /* yacc.c:1646  */
+#line 1280 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 44 "compiler/grammar.y" /* yacc.c:1646  */
+#line 45 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Statement((yyvsp[0]));}
-#line 1285 "grammar.tab.c" /* yacc.c:1646  */
+#line 1286 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 47 "compiler/grammar.y" /* yacc.c:1646  */
+#line 48 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[-1]);}
-#line 1291 "grammar.tab.c" /* yacc.c:1646  */
+#line 1292 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 50 "compiler/grammar.y" /* yacc.c:1646  */
+#line 51 "compiler/grammar.y" /* yacc.c:1646  */
     {}
-#line 1297 "grammar.tab.c" /* yacc.c:1646  */
+#line 1298 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 51 "compiler/grammar.y" /* yacc.c:1646  */
+#line 52 "compiler/grammar.y" /* yacc.c:1646  */
     { (yyval) = nullptr;}
-#line 1303 "grammar.tab.c" /* yacc.c:1646  */
+#line 1304 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 54 "compiler/grammar.y" /* yacc.c:1646  */
+#line 55 "compiler/grammar.y" /* yacc.c:1646  */
     { (yyval) = (yyvsp[-2]);}
-#line 1309 "grammar.tab.c" /* yacc.c:1646  */
+#line 1310 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 57 "compiler/grammar.y" /* yacc.c:1646  */
+#line 58 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Variable((yyvsp[-4]),(yyvsp[0]));}
-#line 1315 "grammar.tab.c" /* yacc.c:1646  */
+#line 1316 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 58 "compiler/grammar.y" /* yacc.c:1646  */
+#line 59 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Variable((yyvsp[-2]));}
-#line 1321 "grammar.tab.c" /* yacc.c:1646  */
+#line 1322 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 61 "compiler/grammar.y" /* yacc.c:1646  */
+#line 62 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) =new compiler::Name(yytext);}
-#line 1327 "grammar.tab.c" /* yacc.c:1646  */
+#line 1328 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 20:
-#line 66 "compiler/grammar.y" /* yacc.c:1646  */
+#line 67 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Value("str",yytext);}
-#line 1333 "grammar.tab.c" /* yacc.c:1646  */
+#line 1334 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 21:
-#line 67 "compiler/grammar.y" /* yacc.c:1646  */
+#line 68 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Value("int",yytext);}
-#line 1339 "grammar.tab.c" /* yacc.c:1646  */
+#line 1340 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1343 "grammar.tab.c" /* yacc.c:1646  */
+#line 1344 "grammar.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1567,16 +1568,13 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 69 "compiler/grammar.y" /* yacc.c:1906  */
+#line 70 "compiler/grammar.y" /* yacc.c:1906  */
 
 
 
 #include "lex.yy.c"
 
-void speak(char const *s){
-  printf("hello %s\n",s);
-}
-
+//print the error also in the final target program source code.
 void yyerror (char const *x){
  printf("#include <stdio.h>\n");
  printf("int main(){");
