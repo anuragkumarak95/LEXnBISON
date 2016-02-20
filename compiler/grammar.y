@@ -76,9 +76,9 @@ value       : STRING_LITERAL                                                    
 void yyerror (char const *x){
  printf("#include <stdio.h>\n");
  printf("int main(){");
-  printf("printf(\"");
- printf("Error --  %s",x);
-  printf("\\n\");");
+    printf("printf(\"");
+    printf("Error --  %s",x);
+    printf("\\n\");");
  printf("}");
  exit(0);
 }
