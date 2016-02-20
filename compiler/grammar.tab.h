@@ -57,8 +57,9 @@ extern int yydebug;
     PRINT = 267,
     INTEGER = 268,
     STRING = 269,
-    NUMBER_LITERAL = 270,
-    STRING_LITERAL = 271
+    VOID = 270,
+    NUMBER_LITERAL = 271,
+    STRING_LITERAL = 272
   };
 #endif
 

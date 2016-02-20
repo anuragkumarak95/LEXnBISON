@@ -18,7 +18,7 @@ std::unique_ptr<compiler::SyntaxTree> root;
 
 %token NAME BRA KET ARROW COLON BO DY ASSIGN SEMI NAME PRINT
 
-%token INTEGER STRING
+%token INTEGER STRING VOID
 %token NUMBER_LITERAL STRING_LITERAL
 
 
@@ -54,7 +54,7 @@ expr        : name COLON type ASSIGN value                                      
             | name COLON type                                                   {$$ = $1;}
             ;
 
-type        : INTEGER | STRING ;
+type        : INTEGER | STRING | VOID ;
 
 value       : STRING_LITERAL | NUMBER_LITERAL ;
 %%

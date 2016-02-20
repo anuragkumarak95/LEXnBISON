@@ -1,4 +1,7 @@
-hello : int  -> (){
+enter : void  -> (){
+
+//comment implementation here.
+
 name: int
 name2 : str = "hi"
 hel:int="hiinonoibonoinoi"

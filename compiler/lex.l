@@ -20,6 +20,7 @@ comment           ([\/\/]{anything}\n)
 "print"        { return PRINT;   }
 "int"          { return INTEGER; }
 "str"          { return STRING;  }
+"void"         { return VOID;}
 
 {name}         { return NAME;}
 
