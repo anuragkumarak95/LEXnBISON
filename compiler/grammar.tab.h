@@ -55,11 +55,9 @@ extern int yydebug;
     ASSIGN = 265,
     SEMI = 266,
     PRINT = 267,
-    INTEGER = 268,
-    STRING = 269,
-    VOID = 270,
-    NUMBER_LITERAL = 271,
-    STRING_LITERAL = 272
+    TYPE = 268,
+    NUMBER_LITERAL = 269,
+    STRING_LITERAL = 270
   };
 #endif
 

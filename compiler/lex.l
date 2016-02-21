@@ -17,30 +17,24 @@ comment           ([\/\/]{anything}\n)
 
 %%
 
-"print"        { return PRINT;   }
-"int"          { return INTEGER; }
-"str"          { return STRING;  }
-"void"         { return VOID;    }
+"print"               { return PRINT;   }
+"int"|"str"|"void"    { return TYPE;    }
 
-{name}         { return NAME;    }
+{name}                { return NAME;    }
 
-{comment}      //No response to any commented section.
-{ws}           //No response to any whitespace category token.
+{comment}             //No response to any commented section.
+{ws}                  //No response to any whitespace category token.
 
-"("            { return BRA ;    }
-")"            { return KET ;    }
-"="            { return ASSIGN;  }
-"->"           { return ARROW;   }
-":"            { return COLON;   }
-";"            { return SEMI;    }
-"{"            { return BO;      }
-"}"            { return DY;      }
+"("                   { return BRA ;    }
+")"                   { return KET ;    }
+"="                   { return ASSIGN;  }
+"->"                  { return ARROW;   }
+":"                   { return COLON;   }
+";"                   { return SEMI;    }
+"{"                   { return BO;      }
+"}"                   { return DY;      }
 
+{number}              { return NUMBER_LITERAL;}
+{string}              { return STRING_LITERAL;}
 
-
-
-{number}       { return NUMBER_LITERAL;}
-{string}       { return STRING_LITERAL;}
-
-
-\n               ++yylineno;
+\n                      ++yylineno;

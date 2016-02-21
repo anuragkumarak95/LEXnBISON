@@ -8,3 +8,4 @@
 #include "Functions.hpp"
 #include "Variable.hpp"
 #include "Value.hpp"
+#include "Params.hpp"

@@ -11,7 +11,7 @@ namespace compiler{
 
     }
     virtual std::string toCode() const{
-      return "printf(\"%s\\n\",\""+children[0]->toCode()+"\");";
+      return "\nprintf(\"%s\\n\",\""+children[0]->toCode()+"\");";
     }
   };
 
