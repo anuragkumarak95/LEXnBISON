@@ -444,8 +444,8 @@ static const yytype_uint8 yytranslate[] =
   /* YYRLINE[YYN] -- Source line where rule number YYN was defined.  */
 static const yytype_uint8 yyrline[] =
 {
-       0,    28,    28,    31,    32,    35,    38,    39,    42,    43,
-      46,    49,    50,    53,    56,    57,    60,    63,    66,    67
+       0,    28,    28,    31,    32,    35,    41,    42,    45,    46,
+      49,    52,    53,    56,    59,    60,    63,    66,    69,    70
 };
 #endif
 
@@ -1251,96 +1251,99 @@ yyreduce:
 
   case 5:
 #line 35 "compiler/grammar.y" /* yacc.c:1646  */
-    {(yyval) = new compiler::Function((yyvsp[-9]),(yyvsp[-4]),(yyvsp[-1]));}
-#line 1256 "grammar.tab.c" /* yacc.c:1646  */
+    {compiler::Function *f = new compiler::Function((yyvsp[-9]),(yyvsp[-4]),(yyvsp[-1]));
+                                                                                if(!f->checkVarUniqueness()) yyerror("variable uniqueness not followed.");
+                                                                                else (yyval) = f;
+                                                                                  }
+#line 1259 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 6:
-#line 38 "compiler/grammar.y" /* yacc.c:1646  */
+#line 41 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Statements((yyvsp[-1]),(yyvsp[0]));}
-#line 1262 "grammar.tab.c" /* yacc.c:1646  */
+#line 1265 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 7:
-#line 39 "compiler/grammar.y" /* yacc.c:1646  */
+#line 42 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = nullptr;}
-#line 1268 "grammar.tab.c" /* yacc.c:1646  */
+#line 1271 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 8:
-#line 42 "compiler/grammar.y" /* yacc.c:1646  */
+#line 45 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Statement((yyvsp[0]));}
-#line 1274 "grammar.tab.c" /* yacc.c:1646  */
+#line 1277 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 9:
-#line 43 "compiler/grammar.y" /* yacc.c:1646  */
+#line 46 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Statement((yyvsp[0]));}
-#line 1280 "grammar.tab.c" /* yacc.c:1646  */
+#line 1283 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 10:
-#line 46 "compiler/grammar.y" /* yacc.c:1646  */
+#line 49 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = (yyvsp[-1]);}
-#line 1286 "grammar.tab.c" /* yacc.c:1646  */
+#line 1289 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 11:
-#line 49 "compiler/grammar.y" /* yacc.c:1646  */
+#line 52 "compiler/grammar.y" /* yacc.c:1646  */
     { (yyval) = new compiler::Params((yyvsp[-1]),(yyvsp[0]));}
-#line 1292 "grammar.tab.c" /* yacc.c:1646  */
+#line 1295 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 12:
-#line 50 "compiler/grammar.y" /* yacc.c:1646  */
+#line 53 "compiler/grammar.y" /* yacc.c:1646  */
     { (yyval) = nullptr;}
-#line 1298 "grammar.tab.c" /* yacc.c:1646  */
+#line 1301 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 13:
-#line 53 "compiler/grammar.y" /* yacc.c:1646  */
+#line 56 "compiler/grammar.y" /* yacc.c:1646  */
     { (yyval) = new compiler::Variable((yyvsp[-2]));}
-#line 1304 "grammar.tab.c" /* yacc.c:1646  */
+#line 1307 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 14:
-#line 56 "compiler/grammar.y" /* yacc.c:1646  */
+#line 59 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Variable((yyvsp[-4]),(yyvsp[0]));}
-#line 1310 "grammar.tab.c" /* yacc.c:1646  */
+#line 1313 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 15:
-#line 57 "compiler/grammar.y" /* yacc.c:1646  */
+#line 60 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Variable((yyvsp[-2]));}
-#line 1316 "grammar.tab.c" /* yacc.c:1646  */
+#line 1319 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 16:
-#line 60 "compiler/grammar.y" /* yacc.c:1646  */
+#line 63 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) =new compiler::Name(yytext);}
-#line 1322 "grammar.tab.c" /* yacc.c:1646  */
+#line 1325 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 17:
-#line 63 "compiler/grammar.y" /* yacc.c:1646  */
+#line 66 "compiler/grammar.y" /* yacc.c:1646  */
     {}
-#line 1328 "grammar.tab.c" /* yacc.c:1646  */
+#line 1331 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 18:
-#line 66 "compiler/grammar.y" /* yacc.c:1646  */
+#line 69 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Value("str",yytext);}
-#line 1334 "grammar.tab.c" /* yacc.c:1646  */
+#line 1337 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
   case 19:
-#line 67 "compiler/grammar.y" /* yacc.c:1646  */
+#line 70 "compiler/grammar.y" /* yacc.c:1646  */
     {(yyval) = new compiler::Value("int",yytext);}
-#line 1340 "grammar.tab.c" /* yacc.c:1646  */
+#line 1343 "grammar.tab.c" /* yacc.c:1646  */
     break;
 
 
-#line 1344 "grammar.tab.c" /* yacc.c:1646  */
+#line 1347 "grammar.tab.c" /* yacc.c:1646  */
       default: break;
     }
   /* User semantic actions sometimes alter yychar, and that requires
@@ -1568,7 +1571,7 @@ yyreturn:
 #endif
   return yyresult;
 }
-#line 70 "compiler/grammar.y" /* yacc.c:1906  */
+#line 73 "compiler/grammar.y" /* yacc.c:1906  */
 
 #include "lex.yy.c"
 

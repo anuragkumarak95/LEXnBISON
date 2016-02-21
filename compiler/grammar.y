@@ -32,7 +32,10 @@ funcs       : func funcs                                                        
             | %empty                                                            {$$ = nullptr;}
             ;
 
-func        : name COLON type ARROW BRA params KET BO statements DY             {$$ = new compiler::Function($1,$6,$9);}
+func        : name COLON type ARROW BRA params KET BO statements DY             {compiler::Function *f = new compiler::Function($1,$6,$9);
+                                                                                if(!f->checkVarUniqueness()) yyerror("variable uniqueness not followed.");
+                                                                                else $$ = f;
+                                                                                  }
             ;
 
 statements  : statements statement                                              {$$ = new compiler::Statements($1,$2);}

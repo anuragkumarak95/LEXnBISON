@@ -19,12 +19,32 @@ namespace compiler{
 
       code += "int main() {";
         for(SyntaxTree *node : children){
-          if(node != nullptr){if(!dynamic_cast<compiler::Name *>(node)) code += node->toCode();}
+          if(node != nullptr){if(!dynamic_cast<const compiler::Name*>(node)) code += node->toCode();}
         }
       code += "}";
 
       return code;
     }
+
+    bool checkVarUniqueness() const{
+      for(SyntaxTree *node : children){
+        if(dynamic_cast<compiler::Statements *>(node)){
+          std::vector<std::string> varNames = dynamic_cast<compiler::Statements *>(node)->getAllVariables();
+
+          for(std::string var : varNames){
+            int counter=0;
+            for(std::string otherVar : varNames){
+              if(var.compare(otherVar)==0) counter++;
+
+              if(counter>1) return false;
+            }
+          }
+        }
+      }
+
+      return true;
+    }
+
   };
 
 }
